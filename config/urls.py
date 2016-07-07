@@ -24,6 +24,7 @@ from rest_framework.authtoken import views
 
 from applications.commands.urls import router as a
 from applications.authentication.urls import router as b
+from applications.posts.urls import router as c
 
 
 
@@ -33,10 +34,12 @@ urlpatterns = [
     # API
     url(r'^api/v1/authentication/', include(b.urls)),
     url(r'^api/v1/commands/', include(a.urls)),
+    url(r'^api/v1/posts/', include(c.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api-token-auth/', views.obtain_auth_token),
     url(r'^rest-auth/', include('rest_auth.urls')),
     url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
+
 
 ]
 

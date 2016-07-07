@@ -24,8 +24,7 @@ class UserViewSet(ModelViewSet):
             user = User.objects.create_user(**userSerializer.validated_data)
             user.set_password(userSerializer.validated_data['password'])
             user.save()
-            #token = Token.objects.get_or_create(user=user)[0]
-            #return Response({"token": token.key}, status.HTTP_201_CREATED)
-            return Response({"user": user.first_name}, status.HTTP_201_CREATED)
+            token = Token.objects.get_or_create(user=user)[0]
+            return Response({"token": token.key}, status.HTTP_201_CREATED)
         return Response(userSerializer.errors, status.HTTP_400_BAD_REQUEST)
 

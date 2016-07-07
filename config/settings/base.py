@@ -56,6 +56,7 @@ THIRD_PARTY = [
 PROJ_APPS = [
     'applications.authentication',
     'applications.commands',
+    'applications.posts'
 
 ]
 
